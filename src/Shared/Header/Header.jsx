@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Header = () => {
-  const { user,logOut } = useContext(AuthContext)
-  
+  const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
     logOut()
-      .then(result => { })
-      .catch(error => console.log(error))
-  }
+      .then((result) => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -43,7 +43,10 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-3xl text-yellow-400">
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-3xl text-yellow-400"
+        >
           Delicia
         </Link>
       </div>
@@ -58,12 +61,20 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <p>{ user?.email}</p>
-        <Link to='/login' className="btn">Login</Link>
-        <button onClick={handleLogOut} className="btn">Logout</button>
-
-        {/* <p>{ user.name}</p> */}
+      <div className="navbar-end space-x-7">
+        {user && (
+          <img className="w-14 h-14 rounded-full" src={user?.photoURL} alt="" />
+        )}
+        {user ? (
+          <button onClick={handleLogOut} className="btn">
+            Logout
+          </button>
+        ) : (
+          <Link to="/login" className="btn">
+            Login
+          </Link>
+        )}
+        {/* <p>{user.email}</p> */}
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
-import { FaExclamationTriangle } from "react-icons/fa";
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, profileUpdate } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -12,13 +11,21 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photo = form.photo.value;
     //   console.log(name, email, password)
+
+    //   profileUpdate({
+    //     displayName:{name},
+    //   photoURL: { photo },
+    // })
+    // //   .then(() => {})
+    // //   .catch(() => {});
 
     setError("");
     if (password.length < 6) {
       setError("Password must be at least 6 characters");
       return;
-    } 
+    }
     createUser(email, password)
       .then((result) => {
         const registeredUser = result.user;
@@ -83,7 +90,7 @@ const Register = () => {
                 <span className="label-text">Photo Url</span>
               </label>
               <input
-                name="photoURL"
+                name="photo"
                 type="text"
                 placeholder="Photo URL"
                 className="input input-bordered"
