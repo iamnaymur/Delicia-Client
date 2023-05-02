@@ -11,7 +11,7 @@ const Header = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="navbar bg-base-100 mb-20">
+    <div className="navbar bg-base-100 mb-20 shadow-yellow-400  shadow-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -54,6 +54,26 @@ const Header = () => {
                 Blog
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to='/contacts'
+                className={({ isActive }) =>
+                  isActive ? "bg-yellow-400" : "default"
+                }
+              >
+                Contacts
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/reservation"
+                className={({ isActive }) =>
+                  isActive ? "bg-yellow-400" : "default"
+                }
+              >
+                Reservation
+              </NavLink>
+            </li>
           </ul>
         </div>
         <Link
@@ -85,11 +105,34 @@ const Header = () => {
               Blog
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/contacts"
+              className={({ isActive }) =>
+                isActive ? "bg-yellow-400" : "default"
+              }
+            >
+              Contacts
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/reservation"
+              className={({ isActive }) =>
+                isActive ? "bg-yellow-400" : "default"
+              }
+            >
+              Reservation
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-end space-x-7">
         {user && (
-          <div className="tooltip" data-tip={user?.displayName}>
+          <div
+            className="tooltip"
+            data-tip={user?.displayName || "no name found"}
+          >
             <button>
               <img
                 className=" w-14 h-14 rounded-full hover"
