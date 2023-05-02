@@ -11,7 +11,7 @@ const Header = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 mb-20">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -89,11 +89,15 @@ const Header = () => {
       </div>
       <div className="navbar-end space-x-7">
         {user && (
-          <img
-            className="w-14 h-14 rounded-full hover"
-            src={user?.photoURL || ""}
-            alt="User Profile"
-          />
+          <div className="tooltip" data-tip={user?.displayName}>
+            <button>
+              <img
+                className=" w-14 h-14 rounded-full hover"
+                src={user?.photoURL || ""}
+                alt="User Profile"
+              />
+            </button>
+          </div>
         )}
         {user ? (
           <button onClick={handleLogOut} className="btn">

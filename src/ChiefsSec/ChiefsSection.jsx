@@ -13,8 +13,8 @@ const ChiefsSection = () => {
     <>
       <div>
         {" "}
-        <p className="text-3xl text-gray-800">
-          All our best chiefs are here below
+        <p className="text-4xl font-semibold  text-gray-800">
+          All our best chiefs are here below -
         </p>
       </div>
       <div className="grid md:grid-rows-2 md:grid-flow-col gap-2">
