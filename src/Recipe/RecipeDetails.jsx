@@ -27,11 +27,11 @@ const RecipeDetails = () => {
             {recipes.length}
           </p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Watch</button>
+            <button className="btn border-none bg-yellow-500">More Details.</button>
           </div>
         </div>
       </div>
-        <h1 className="text-4xl font-semibold m-10 bold">Famous recipes of this chief.</h1>
+        <h1 className="text-4xl font-semibold m-10 bold">Famous recipes of this chief :</h1>
       <div className="grid md:grid-rows-1 md:grid-flow-col gap-2">
         {recipes.map((recipe) => (
           <RecipeTable recipe={recipe}></RecipeTable>

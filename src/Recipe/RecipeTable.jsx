@@ -12,8 +12,8 @@ const RecipeTable = ({ recipe }) => {
   }
   return (
     <>
-      <div className="card w-96 bg-base-100 shadow-2xl mb-8">
-        <div className="card-body text-start ">
+      <div className="card  w-96 bg-base-100 shadow-gray-500 shadow-2xl mb-8">
+        <div className="card-body text-start flex flex-col justify-between">
           <h2 className="card-title text-xl underline">{name}</h2>
           <li>
             <span className="bold">Ingredients :</span>
@@ -28,7 +28,7 @@ const RecipeTable = ({ recipe }) => {
             {rating}
           </li>
           <div className="card-actions justify-end mt-5">
-            <button onClick={oneTimeButton} disabled={!disable} className="btn btn-primary">
+            <button onClick={oneTimeButton} disabled={!disable} className="btn bg-yellow-500 border-none">
               Add to favorite.
             </button>
           </div>

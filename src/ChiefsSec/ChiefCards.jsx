@@ -16,7 +16,7 @@ const ChiefCards = ({ chiefCard }) => {
           <p>Special Recipes: {recipes.length}</p>
           <p>Total likes: {likes}</p>
           <div className="card-actions justify-end">
-            <Link to={`/chiefs/${id}`} className="btn btn-primary">View Recipes.</Link>
+            <Link to={`/chiefs/${id}`} className="btn bg-yellow-600 border-none">View Recipes.</Link>
           </div>
         </div>
       </div>

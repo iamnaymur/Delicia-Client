@@ -13,7 +13,9 @@ const ChiefsSection = () => {
     <>
       <div>
         {" "}
-        <p className="text-3xl">All our best chiefs are here below</p>
+        <p className="text-3xl">
+          All our best chiefs are here below
+        </p>
       </div>
       <div className="grid md:grid-rows-2 md:grid-flow-col gap-2">
         {Chiefs.map((chiefCard) => (

@@ -90,7 +90,7 @@ const Header = () => {
       <div className="navbar-end space-x-7">
         {user && (
           <img
-            className="w-14 h-14 rounded-full"
+            className="w-14 h-14 rounded-full hover"
             src={user?.photoURL || ""}
             alt="User Profile"
           />

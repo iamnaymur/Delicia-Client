@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 const Login = () => {
   const [error, setError] = useState("");
   const { signIn, googleSignIn } = useContext(AuthContext);
-const navigate= useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const handleLogin = (event) => {
@@ -22,9 +22,8 @@ const navigate= useNavigate()
       .then((result) => {
         const loggedUser = result.user;
         form.reset();
-
         toast.success("Login successful");
-        navigate(from,{replace:true})
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError("");
@@ -37,7 +36,8 @@ const navigate= useNavigate()
       .then((result) => {
         setError("");
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);

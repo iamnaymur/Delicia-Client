@@ -2,7 +2,6 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
-import ChiefsSection from "../ChiefsSec/ChiefsSection";
 import WholeHome from "../layouts/WholeHome";
 import ChiefsRecipe from "../layouts/ChiefsRecipe";
 import RecipeDetails from "../Recipe/RecipeDetails";
