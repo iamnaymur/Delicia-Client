@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -42,6 +42,17 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleGitHubSignIn = () => {
+    gitHubSignIn().then((res) => {
+      setError("");
+      const loggedUser = res.user;
+      navigate(from, { replace: true });
+    })
+      .catch(error => {
+      console.log(error)
+    })
   };
 
   return (
@@ -82,6 +93,7 @@ const Login = () => {
               <label className="label">
                 Don't have an account?
                 <Link
+                  type="button"
                   to="/register"
                   className="label-text-alt link link-hover bg-yellow-400"
                 >
@@ -96,13 +108,18 @@ const Login = () => {
             </div>
             <div>
               <button
+                type="button"
                 onClick={handleGoogleSignIn}
                 className="btn btn-wide btn-outline btn-warning mb-3"
               >
                 <FaGoogle />
                 <span className="ms-2"> Sign in with Google</span>
               </button>
-              <button className="btn btn-wide btn-outline btn-warning">
+              <button
+                type="button"
+                onClick={handleGitHubSignIn}
+                className="btn btn-wide btn-outline btn-warning"
+              >
                 <FaGithub />
                 <span className="ms-2"> Sign in with Github</span>
               </button>

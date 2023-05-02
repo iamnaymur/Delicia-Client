@@ -13,7 +13,7 @@ const ChiefsSection = () => {
     <>
       <div>
         {" "}
-        <p className="text-3xl">
+        <p className="text-3xl text-gray-800">
           All our best chiefs are here below
         </p>
       </div>
