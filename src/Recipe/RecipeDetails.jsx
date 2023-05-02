@@ -4,8 +4,8 @@ import RecipeTable from "./RecipeTable";
 
 const RecipeDetails = () => {
   const recipe = useLoaderData();
-  const { image, likes, name, experience, description,recipes } = recipe;
-//   console.log(recipes);
+  const { image, likes, name, experience, description, recipes } = recipe;
+  //   console.log(recipes);
   return (
     <>
       <div className="card card-side bg-base-100 shadow-xl">
@@ -31,9 +31,12 @@ const RecipeDetails = () => {
           </div>
         </div>
       </div>
-          {
-              recipes.map(recipe=><RecipeTable recipe={recipe} ></RecipeTable>)
-          }
+        <h1 className="text-3xl font-semibold mt-5">Famous recipes of this chief.</h1>
+      <div className="grid md:grid-rows-1 md:grid-flow-col gap-2">
+        {recipes.map((recipe) => (
+          <RecipeTable recipe={recipe}></RecipeTable>
+        ))}
+      </div>
     </>
   );
 };
