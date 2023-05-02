@@ -63,7 +63,11 @@ const Header = () => {
       </div>
       <div className="navbar-end space-x-7">
         {user && (
-          <img className="w-14 h-14 rounded-full" src={user?.photoURL} alt="" />
+          <img
+            className="w-14 h-14 rounded-full"
+            src={user?.photoURL || ""}
+            alt="User Profile"
+          />
         )}
         {user ? (
           <button onClick={handleLogOut} className="btn">

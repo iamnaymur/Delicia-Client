@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { toast } from "react-hot-toast";
 const Register = () => {
   const [error, setError] = useState("");
   const { createUser, profileUpdate } = useContext(AuthContext);
@@ -26,15 +27,18 @@ const Register = () => {
       setError("Password must be at least 6 characters");
       return;
     }
+
     createUser(email, password)
       .then((result) => {
         const registeredUser = result.user;
         // console.log(registeredUser);
         form.reset();
+        toast.success("Registration successful");
       })
       .catch((error) => {
         console.log(error);
         setError(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -90,6 +94,7 @@ const Register = () => {
                 <span className="label-text">Photo Url</span>
               </label>
               <input
+                required
                 name="photo"
                 type="text"
                 placeholder="Photo URL"

@@ -9,35 +9,40 @@ import RecipeDetails from "../Recipe/RecipeDetails";
 import ErrorPage from "../errorPage/ErrorPage";
 import Login from "../Login/Login";
 import Register from "../Login/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <WholeHome></WholeHome>,
       },
       {
-        path:'/login',
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/register',
-        element:<Register></Register>
-      }
+        path: "/register",
+        element: <Register></Register>,
+      },
     ],
   },
   {
     path: "chiefs",
     element: <ChiefsRecipe></ChiefsRecipe>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: ":id",
-        element: <RecipeDetails></RecipeDetails>,
+        element: (
+          <PrivateRoute>
+            <RecipeDetails></RecipeDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/chiefs/${params.id}`),
       },

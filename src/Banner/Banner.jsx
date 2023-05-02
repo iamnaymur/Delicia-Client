@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <div>
-      <div className="flex items-center align-middle text-center">
+      <div className="md:flex items-center mt-10 align-middle text-center">
         <div>
           <p className="text-3xl">
             Welcome to Delicia, your ultimate destination for exploring

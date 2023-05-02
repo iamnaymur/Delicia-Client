@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
   const { signIn, googleSignIn } = useContext(AuthContext);
+const navigate= useNavigate()
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,11 +21,13 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        // console.log(loggedUser)
         form.reset();
+
+        toast.success("Login successful");
+        navigate(from,{replace:true})
       })
       .catch((error) => {
-        // console.log(error);
+        setError("");
         setError(error.message);
       });
   };
@@ -29,9 +35,9 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
+        setError("");
         const loggedUser = result.user;
-        console.log(loggedUser)
-        setError("")
+        console.log(loggedUser);
       })
       .catch((error) => {
         console.log(error);

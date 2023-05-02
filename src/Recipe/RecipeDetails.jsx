@@ -31,7 +31,7 @@ const RecipeDetails = () => {
           </div>
         </div>
       </div>
-        <h1 className="text-3xl font-semibold mt-5">Famous recipes of this chief.</h1>
+        <h1 className="text-4xl font-semibold m-10 bold">Famous recipes of this chief.</h1>
       <div className="grid md:grid-rows-1 md:grid-flow-col gap-2">
         {recipes.map((recipe) => (
           <RecipeTable recipe={recipe}></RecipeTable>
