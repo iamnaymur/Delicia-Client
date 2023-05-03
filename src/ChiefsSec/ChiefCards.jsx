@@ -1,5 +1,5 @@
 import React from "react";
-import LazyLoad from "react-lazy-load";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const ChiefCards = ({ chiefCard }) => {
@@ -9,9 +9,8 @@ const ChiefCards = ({ chiefCard }) => {
     <div>
       <div className="card w-96 bg-base-100 shadow-xl ">
         <figure>
-          <LazyLoad offset={1000}>
-            <img style={{ height: "300px" }} src={image} alt="chefs" />
-          </LazyLoad>
+          <LazyLoadImage height={300} src={image}/>
+          {/* <img style={{ height: "300px" }} alt="chefs" /> */}
         </figure>
         <div className="card-body text-start">
           <h2 className="card-title">{name}</h2>

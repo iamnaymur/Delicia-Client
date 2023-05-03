@@ -15,6 +15,7 @@ const WholeHome = () => {
         <Banner></Banner>
       </div>
       <ChiefsSection></ChiefsSection>
+
       <BestSelling></BestSelling>
       <GetUpdates></GetUpdates>
     </div>

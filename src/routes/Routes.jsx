@@ -30,9 +30,13 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: '/blog',
-        element:<Blog></Blog>
-      }
+        path: "/blog",
+        element: (
+          <PrivateRoute>
+            <Blog></Blog>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
