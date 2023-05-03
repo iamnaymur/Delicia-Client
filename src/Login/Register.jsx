@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser, profileUpdate } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -24,13 +24,13 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const registeredUser = result.user;
-        // console.log(registeredUser);
+        console.log(registeredUser);
         form.reset();
         toast.success("Registration successful");
-        updateData(registeredUser, name, photo);
+        updateData(result.user, name, photo);
       })
       .catch((error) => {
-        // console.log(error);
+        console.log(error);
         setError(error.message);
         toast.error(error.message);
       });
@@ -116,7 +116,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button type="button" className="btn btn-active border-0 bg-yellow-500">
+              <button className="btn btn-active border-0 bg-yellow-500">
                 Register
               </button>
             </div>

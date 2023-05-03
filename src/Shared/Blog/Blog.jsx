@@ -1,10 +1,16 @@
 import React from "react";
 import { FaDownload } from "react-icons/fa";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const Blog = () => {
   return (
-    <>
-      <div className="space-y-10 text-start bg-slate-200 p-5 rounded-xl">
+    <div>
+      <div
+        ref={ref}
+        className="space-y-10 text-start bg-slate-200 p-5 rounded-xl"
+      >
         <h1 className="text-2xl font-semibold">
           {" "}
           1. Tell us the differences between uncontrolled and controlled
@@ -68,11 +74,17 @@ const Blog = () => {
           developer.
         </p>
       </div>
-      <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mt-5">
-        <FaDownload></FaDownload>
-        <span className="ms-4">Download PDF</span>
-      </button>
-    </>
+      <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => (
+          <button
+            className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mt-5"
+            onClick={toPdf}
+          >
+            <FaDownload></FaDownload> <span className="ms-4">Download PDF</span>
+          </button>
+        )}
+      </Pdf>
+    </div>
   );
 };
 
