@@ -12,6 +12,8 @@
 
 ## The live site link (with firebase) of this project 
 
+Live link - delicia-c1582.web.app
+
 
 
 
