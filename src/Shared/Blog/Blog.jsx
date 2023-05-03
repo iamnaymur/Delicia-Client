@@ -2,9 +2,9 @@ import React from "react";
 import { FaDownload } from "react-icons/fa";
 import Pdf from "react-to-pdf";
 const options = {
-  orientation: "landscape",
+  orientation: "portrait",
   unit: "in",
-  format: [20, 16],
+  format: [14, 11],
 };
 
 const ref = React.createRef();
@@ -79,7 +79,14 @@ const Blog = () => {
           developer.
         </p>
       </div>
-      <Pdf targetRef={ref} filename="code-example.pdf" options={options}>
+      <Pdf
+        targetRef={ref}
+        filename="code-example.pdf"
+        options={options}
+        x={0.5}
+        y={1}
+        scale={0.8}
+      >
         {({ toPdf }) => (
           <button
             className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mt-5"
