@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import RecipeTable from "./RecipeTable";
+import LazyLoad from "react-lazy-load";
 
 const RecipeDetails = () => {
   const recipe = useLoaderData();
@@ -10,7 +11,9 @@ const RecipeDetails = () => {
     <>
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
-          <img src={image} alt="Movie" />
+          <LazyLoad offset={1000}>
+            <img src={image} alt="chefDetails" />
+          </LazyLoad>
         </figure>
         <div className="card-body text-start">
           <h2 className="card-title text-4xl">{name}</h2>
@@ -27,11 +30,15 @@ const RecipeDetails = () => {
             {recipes.length}
           </p>
           <div className="card-actions justify-end">
-            <button className="btn border-none bg-yellow-500">More Details.</button>
+            <button className="btn border-none bg-yellow-500">
+              More Details.
+            </button>
           </div>
         </div>
       </div>
-        <h1 className="text-4xl font-semibold m-10 bold">Famous recipes of this chief :</h1>
+      <h1 className="text-4xl font-semibold m-10 bold">
+        Famous recipes of this chief :
+      </h1>
       <div className="grid md:grid-rows-1 md:grid-flow-col gap-2">
         {recipes.map((recipe) => (
           <RecipeTable recipe={recipe}></RecipeTable>
