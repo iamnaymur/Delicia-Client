@@ -36,17 +36,13 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
   const gitHubSignIn = () => {
-    setLoading(true)
+    setLoading(true);
     return signInWithPopup(auth, gitHubProvider);
   };
 
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
-  };
-
-  const profileUpdate = () => {
-    updateProfile(auth.currentUser);
   };
 
   useEffect(() => {
@@ -59,6 +55,7 @@ const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
+
   const authInfo = {
     user,
     createUser,
@@ -66,7 +63,6 @@ const AuthProvider = ({ children }) => {
     logOut,
     googleSignIn,
     gitHubSignIn,
-    profileUpdate,
     loading,
   };
   return (

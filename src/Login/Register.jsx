@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
   const [error, setError] = useState("");
   const { createUser, profileUpdate } = useContext(AuthContext);
@@ -13,14 +14,6 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    //   console.log(name, email, password)
-
-    //   profileUpdate({
-    //     displayName:{name},
-    //   photoURL: { photo },
-    // })
-    // //   .then(() => {})
-    // //   .catch(() => {});
 
     setError("");
     if (password.length < 6) {
@@ -34,12 +27,24 @@ const Register = () => {
         // console.log(registeredUser);
         form.reset();
         toast.success("Registration successful");
+        updateData(registeredUser, name, photo);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setError(error.message);
         toast.error(error.message);
       });
+
+    const updateData = (user, name, photoURL) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photoURL,
+      })
+        .then(() => {
+          console.log("updated");
+        })
+        .catch((error) => console.log(error.message));
+    };
   };
 
   return (
@@ -111,7 +116,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-active border-0 bg-yellow-500">
+              <button type="button" className="btn btn-active border-0 bg-yellow-500">
                 Register
               </button>
             </div>
