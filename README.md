@@ -10,9 +10,9 @@
 
 
 
-## The live site link (with firebase) of this project 
-
-## [Firebase live link](delicia-c1582.web.app)
+## The live link of my project (Firebase) 
+   
+   https://delicia-c1582.web.app/
 
 
 

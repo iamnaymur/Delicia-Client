@@ -10,10 +10,15 @@ const ChiefCards = ({ chiefCard }) => {
   const { id, name, image, experience, recipes, likes } = chiefCard;
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl ">
-        <figure>
-          <LazyLoad   height={20} threshold={0.99}>
-            <img className="items-center" style={{ height: "300px" }} src={image} alt="chefs" />
+      <div className="card  bg-base-100 shadow-xl ">
+        <figure >
+          <LazyLoad height={20} threshold={0.99}>
+            <img
+              className="items-center "
+              style={{ height: "300px" }}
+              src={image}
+              alt="chefs"
+            />
           </LazyLoad>
         </figure>
         <div className="card-body text-start">
