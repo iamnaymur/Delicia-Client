@@ -52,7 +52,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chiefs/${params.id}`),
+          fetch(
+            `https://the-delicia-sever-nrtusher2-gmailcom.vercel.app/chiefs/${params.id}`
+          ),
       },
     ],
   },

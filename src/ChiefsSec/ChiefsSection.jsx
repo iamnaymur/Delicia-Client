@@ -5,7 +5,7 @@ const ChiefsSection = () => {
   const [Chiefs, setChiefs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/chiefs")
+    fetch("https://the-delicia-sever-nrtusher2-gmailcom.vercel.app/chiefs")
       .then((res) => res.json())
       .then((data) => setChiefs(data));
   }, []);
