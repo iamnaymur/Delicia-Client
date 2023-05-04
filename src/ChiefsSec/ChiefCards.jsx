@@ -12,7 +12,7 @@ const ChiefCards = ({ chiefCard }) => {
     <div>
       <div className="card  bg-base-100 shadow-xl ">
         <figure >
-          <LazyLoad height={20} threshold={0.99}>
+          <LazyLoad  threshold={0.99}>
             <img
               className="items-center "
               style={{ height: "300px" }}

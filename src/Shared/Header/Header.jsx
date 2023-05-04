@@ -56,7 +56,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to='/contacts'
+                to="/contacts"
                 className={({ isActive }) =>
                   isActive ? "bg-yellow-400" : "default"
                 }
@@ -103,26 +103,6 @@ const Header = () => {
               }
             >
               Blog
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contacts"
-              className={({ isActive }) =>
-                isActive ? "bg-yellow-400" : "default"
-              }
-            >
-              Contacts
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/reservation"
-              className={({ isActive }) =>
-                isActive ? "bg-yellow-400" : "default"
-              }
-            >
-              Reservation
             </NavLink>
           </li>
         </ul>
